@@ -5,6 +5,7 @@ from utils import (
     plot_sample_images,
     preprocess_data,
     train_classifier,
+    tune_hyperparameters,
     evaluate_classifier,
     rebuild_classification_report_from_confusion_matrix
 )
