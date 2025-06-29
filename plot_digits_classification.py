@@ -20,7 +20,8 @@ def main():
         data, digits.target, test_size=0.5, shuffle=False
     )
 
-    clf = train_classifier(X_train, y_train)
+#    clf = train_classifier(X_train, y_train)
+    clf = tune_hyperparameters(X_train, y_train)
     disp = evaluate_classifier(clf, X_test, y_test)
     rebuild_classification_report_from_confusion_matrix(disp)
 

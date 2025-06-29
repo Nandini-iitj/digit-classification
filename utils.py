@@ -58,3 +58,14 @@ def rebuild_classification_report_from_confusion_matrix(disp):
 
     print("Classification report rebuilt from confusion matrix:\n")
     print(metrics.classification_report(y_true, y_pred))
+from sklearn.model_selection import GridSearchCV
+
+def tune_hyperparameters(X_train, y_train):
+    params = {
+        'C': [0.1, 1, 10],
+        'gamma': [0.001, 0.01, 0.1]
+    }
+    clf = GridSearchCV(svm.SVC(), param_grid=params, cv=3)
+    clf.fit(X_train, y_train)
+    print("Best parameters:", clf.best_params_)
+    return clf.best_estimator_
